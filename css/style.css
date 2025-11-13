@@ -1059,8 +1059,9 @@ main { flex: 1; }
 }
 
 .header-brand .brand-logo {
-    width: 140px;
+    width: 152px;
     max-width: 100%;
+    aspect-ratio: 160 / 48;
 }
 
 .header-title {
@@ -1177,7 +1178,7 @@ main { flex: 1; }
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     opacity: 0;
-    animation: fadeInUp 0.6s ease forwards;
+    animation: none;
     display: flex;
     flex-direction: column;
 }
@@ -2254,7 +2255,7 @@ main { flex: 1; }
     }
 
     .header-brand .brand-logo {
-        width: 120px;
+        width: 132px;
     }
 
     .header-title {
