@@ -71,7 +71,7 @@
   }
   </script>
 </head>
-<body>
+<body class="blog-page">
   <header class="header" role="banner">
     <div class="container">
       <div class="header-brand">
@@ -82,159 +82,125 @@
     </div>
   </header>
 
-  <main id="main-content" class="container" style="padding: 40px 20px;">
-    <!-- Blog Hero Section -->
-    <section class="blog-hero-section" style="text-align: center; margin-bottom: 48px;">
-      <h1 class="section-title" style="font-size: clamp(2rem, 5vw, 2.5rem); margin-bottom: 16px;">Elektrikçi Blog</h1>
-      <p class="section-subtitle" style="font-size: clamp(1rem, 3vw, 1.25rem); color: #64748b; max-width: 600px; margin: 0 auto; padding: 0 16px;">
-        Elektrik arızalarından LED aydınlatmaya, güvenlikten enerji tasarrufuna kadar uzman rehberleri ve pratik çözümler
-      </p>
-      <div class="blog-categories" style="margin-top: 32px; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; padding: 0 16px;">
-        <span class="category-tag" style="background: #f8fafc; border: 1px solid #e2e8f0; color: #64748b; padding: 8px 16px; border-radius: 6px; font-size: 0.875rem; font-weight: 500;">
-          <i class="fas fa-bolt" style="margin-right: 6px; color: #64748b;"></i>Acil Arızalar
-        </span>
-        <span class="category-tag" style="background: #f8fafc; border: 1px solid #e2e8f0; color: #64748b; padding: 8px 16px; border-radius: 6px; font-size: 0.875rem; font-weight: 500;">
-          <i class="fas fa-lightbulb" style="margin-right: 6px; color: #64748b;"></i>LED Aydınlatma
-        </span>
-        <span class="category-tag" style="background: #f8fafc; border: 1px solid #e2e8f0; color: #64748b; padding: 8px 16px; border-radius: 6px; font-size: 0.875rem; font-weight: 500;">
-          <i class="fas fa-shield-alt" style="margin-right: 6px; color: #64748b;"></i>Güvenlik
-        </span>
-        <span class="category-tag" style="background: #f8fafc; border: 1px solid #e2e8f0; color: #64748b; padding: 8px 16px; border-radius: 6px; font-size: 0.875rem; font-weight: 500;">
-          <i class="fas fa-leaf" style="margin-right: 6px; color: #64748b;"></i>Enerji Tasarrufu
-        </span>
-      </div>
-    </section>
+  <main id="main-content" class="blog-main">
+    <div class="container">
+      <!-- Blog Hero Section -->
+      <section class="blog-hero-section">
+        <h1 class="blog-hero-title">Elektrikçi Blog</h1>
+        <p class="blog-hero-subtitle">
+          Elektrik arızalarından LED aydınlatmaya, güvenlikten enerji tasarrufuna kadar uzman rehberleri ve pratik çözümler
+        </p>
+        <div class="blog-categories">
+          <span class="category-tag"><i class="fas fa-bolt icon-danger"></i>Acil Arızalar</span>
+          <span class="category-tag"><i class="fas fa-lightbulb icon-warning"></i>LED Aydınlatma</span>
+          <span class="category-tag"><i class="fas fa-shield-alt icon-success"></i>Güvenlik</span>
+          <span class="category-tag"><i class="fas fa-leaf icon-info"></i>Enerji Tasarrufu</span>
+        </div>
+      </section>
 
-    <!-- Featured Articles -->
-    <section class="featured-articles" style="margin-bottom: 48px;">
-      <h2 style="font-size: 1.875rem; font-weight: 700; margin-bottom: 24px; color: #1e293b;">
-        <i class="fas fa-star" style="color: #f59e0b; margin-right: 8px;"></i>Öne Çıkan Makaleler
-      </h2>
-      <div class="blog-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
-        <article class="blog-card featured" style="position: relative; overflow: hidden; background: white; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.1)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='0 1px 3px rgba(0, 0, 0, 0.05)'; this.style.transform='translateY(0)';">
-          <a class="blog-link" href="/blog/acil-durumda-elektrik-arizasi-nasil-yonetilir.html" style="display: block; text-decoration: none; color: inherit;">
-            <div class="blog-image-container" style="position: relative; overflow: hidden; border-radius: 12px 12px 0 0;">
-              <img class="blog-thumb lazy-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="../images/blog/blogyazi1.webp" alt="Acil elektrik arızası yönetimi - Güvenlik önlemleri ve çözüm adımları" loading="lazy" decoding="async" width="480" height="270" style="width: 100%; height: 200px; object-fit: cover; transition: transform 0.3s ease;">
-              <div class="blog-category-badge" style="position: absolute; top: 12px; left: 12px; background: #dc2626; color: white; padding: 4px 12px; border-radius: 16px; font-size: 0.75rem; font-weight: 600;">
-                ACİL DURUM
+      <!-- Featured Articles -->
+      <section class="featured-articles">
+        <h2 class="featured-heading">
+          <i class="fas fa-star icon-warning"></i>Öne Çıkan Makaleler
+        </h2>
+        <div class="featured-grid">
+          <article class="blog-card">
+            <a class="blog-link" href="/blog/acil-durumda-elektrik-arizasi-nasil-yonetilir.html" aria-label="Acil durumda elektrik arızası nasıl yönetilir?">
+              <div class="blog-card__media">
+                <img class="blog-thumb lazy-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="../images/blog/blogyazi1.webp" alt="Acil elektrik arızası yönetimi - Güvenlik önlemleri ve çözüm adımları" loading="lazy" decoding="async" width="480" height="270">
+                <span class="blog-card__badge blog-card__badge--danger">ACİL DURUM</span>
+                <span class="blog-card__time"><i class="fas fa-clock"></i>8 dk</span>
               </div>
-              <div class="reading-time" style="position: absolute; top: 12px; right: 12px; background: rgba(0,0,0,0.7); color: white; padding: 4px 8px; border-radius: 8px; font-size: 0.75rem;">
-                <i class="fas fa-clock" style="margin-right: 4px;"></i>8 dk
+              <div class="blog-content">
+                <div class="blog-meta">
+                  <span><i class="fas fa-calendar"></i>05 Kas 2025</span>
+                  <span><i class="fas fa-eye"></i>1.2k görüntülenme</span>
+                </div>
+                <h3 class="blog-title">Acil Durumda Elektrik Arızası Nasıl Yönetilir?</h3>
+                <p class="blog-excerpt">
+                  Sigorta atması, yanık kokusu veya kaçak şüphesinde güvenliğinizi koruyarak yapmanız gereken kritik adımlar. Uzman rehberi ile acil durumlarda doğru davranın.
+                </p>
+                <div class="blog-tags">
+                  <span class="tag-pill tag-pill--danger">elektrik arızası</span>
+                  <span class="tag-pill tag-pill--warning">güvenlik</span>
+                </div>
+                <span class="blog-cta">Devamını Oku <i class="fas fa-arrow-right"></i></span>
               </div>
-            </div>
-            <div class="blog-content" style="padding: 20px; border-radius: 0 0 12px 12px;">
-              <div class="blog-meta" style="display: flex; align-items: center; gap: 16px; margin-bottom: 12px; font-size: 0.875rem; color: #64748b;">
-                <span><i class="fas fa-calendar" style="margin-right: 4px;"></i>05 Kas 2025</span>
-                <span><i class="fas fa-eye" style="margin-right: 4px;"></i>1.2k görüntülenme</span>
+            </a>
+          </article>
+
+          <article class="blog-card">
+            <a class="blog-link" href="/blog/led-aydinlatmaya-gecis-rehberi.html" aria-label="LED aydınlatmaya geçiş rehberi">
+              <div class="blog-card__media">
+                <img class="blog-thumb lazy-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="../images/blog/blogyazi2.webp" alt="LED aydınlatma geçiş rehberi - Enerji tasarrufu ve doğru seçim" loading="lazy" decoding="async" width="480" height="270">
+                <span class="blog-card__badge blog-card__badge--success">TASARRUF</span>
+                <span class="blog-card__time"><i class="fas fa-clock"></i>12 dk</span>
               </div>
-              <h3 class="blog-title" style="font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; line-height: 1.4; color: #1e293b;">
-                Acil Durumda Elektrik Arızası Nasıl Yönetilir?
-              </h3>
-              <p class="blog-excerpt" style="color: #64748b; line-height: 1.6; margin-bottom: 16px;">
-                Sigorta atması, yanık kokusu veya kaçak şüphesinde güvenliğinizi koruyarak yapmanız gereken kritik adımlar. Uzman rehberi ile acil durumlarda doğru davranın.
-              </p>
-              <div class="blog-tags" style="display: flex; gap: 8px; margin-bottom: 12px;">
-                <span style="background: #fee2e2; color: #dc2626; padding: 2px 8px; border-radius: 8px; font-size: 0.75rem;">elektrik arızası</span>
-                <span style="background: #fef3c7; color: #d97706; padding: 2px 8px; border-radius: 8px; font-size: 0.75rem;">güvenlik</span>
+              <div class="blog-content">
+                <div class="blog-meta">
+                  <span><i class="fas fa-calendar"></i>22 Eki 2025</span>
+                  <span><i class="fas fa-eye"></i>850 görüntülenme</span>
+                </div>
+                <h3 class="blog-title">LED Aydınlatmaya Geçiş Rehberi</h3>
+                <p class="blog-excerpt">
+                  Doğru lumen, renk sıcaklığı ve CRI seçimiyle %80'e varan enerji tasarrufu sağlayın. LED seçiminde dikkat edilecek teknik detaylar ve pratik öneriler.
+                </p>
+                <div class="blog-tags">
+                  <span class="tag-pill tag-pill--success">LED</span>
+                  <span class="tag-pill tag-pill--info">aydınlatma</span>
+                </div>
+                <span class="blog-cta">Devamını Oku <i class="fas fa-arrow-right"></i></span>
               </div>
-              <span class="blog-cta" style="color: #3b82f6; font-weight: 600; font-size: 0.875rem;">
-                Devamını Oku <i class="fas fa-arrow-right" style="margin-left: 4px;"></i>
-              </span>
-            </div>
+            </a>
+          </article>
+
+          <article class="blog-card">
+            <a class="blog-link" href="/blog/elektrik-kacagi-belirtileri-ve-cozumleri.html" aria-label="Elektrik kaçağı belirtileri ve çözümleri">
+              <div class="blog-card__media">
+                <img class="blog-thumb lazy-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="../images/blog/blogyazi3.webp" alt="Elektrik kaçağı belirtileri ve çözümleri - Güvenlik kontrolü" loading="lazy" decoding="async" width="480" height="270">
+                <span class="blog-card__badge blog-card__badge--warning">GÜVENLİK</span>
+                <span class="blog-card__time"><i class="fas fa-clock"></i>10 dk</span>
+              </div>
+              <div class="blog-content">
+                <div class="blog-meta">
+                  <span><i class="fas fa-calendar"></i>13 Kas 2025</span>
+                  <span><i class="fas fa-eye"></i>940 görüntülenme</span>
+                </div>
+                <h3 class="blog-title">Elektrik Kaçağı: Belirtiler ve Çözümler</h3>
+                <p class="blog-excerpt">
+                  Yüksek fatura, çarpılma riski ve ısınma gibi elektrik kaçağı belirtilerini zamanında fark edin. Profesyonel ölçüm ve çözüm yöntemleri.
+                </p>
+                <div class="blog-tags">
+                  <span class="tag-pill tag-pill--warning">kaçak akım</span>
+                  <span class="tag-pill tag-pill--danger">güvenlik</span>
+                </div>
+                <span class="blog-cta">Devamını Oku <i class="fas fa-arrow-right"></i></span>
+              </div>
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <!-- Call to Action -->
+      <section class="blog-cta-section" aria-labelledby="blog-cta-title">
+        <h2 id="blog-cta-title">Elektrik Hizmeti Gerekiyor mu?</h2>
+        <p>Samsun'da profesyonel elektrikçi hizmeti için iletişime geçin. Uzman ekibimiz kısa sürede yanınızda.</p>
+        <div class="blog-cta-actions">
+          <a href="tel:+905537985901" class="btn-ghost">
+            <i class="fas fa-phone"></i>
+            <span>0553 798 5901</span>
           </a>
-        </article>
-
-        <article class="blog-card featured" style="position: relative; overflow: hidden; background: white; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.1)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='0 1px 3px rgba(0, 0, 0, 0.05)'; this.style.transform='translateY(0)';">
-          <a class="blog-link" href="/blog/led-aydinlatmaya-gecis-rehberi.html" style="display: block; text-decoration: none; color: inherit;">
-            <div class="blog-image-container" style="position: relative; overflow: hidden; border-radius: 12px 12px 0 0;">
-              <img class="blog-thumb lazy-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="../images/blog/blogyazi2.webp" alt="LED aydınlatma geçiş rehberi - Enerji tasarrufu ve doğru seçim" loading="lazy" decoding="async" width="480" height="270" style="width: 100%; height: 200px; object-fit: cover; transition: transform 0.3s ease;">
-              <div class="blog-category-badge" style="position: absolute; top: 12px; left: 12px; background: #16a34a; color: white; padding: 4px 12px; border-radius: 16px; font-size: 0.75rem; font-weight: 600;">
-                TASARRUF
-              </div>
-              <div class="reading-time" style="position: absolute; top: 12px; right: 12px; background: rgba(0,0,0,0.7); color: white; padding: 4px 8px; border-radius: 8px; font-size: 0.75rem;">
-                <i class="fas fa-clock" style="margin-right: 4px;"></i>12 dk
-              </div>
-            </div>
-            <div class="blog-content" style="padding: 20px; border-radius: 0 0 12px 12px;">
-              <div class="blog-meta" style="display: flex; align-items: center; gap: 16px; margin-bottom: 12px; font-size: 0.875rem; color: #64748b;">
-                <span><i class="fas fa-calendar" style="margin-right: 4px;"></i>22 Eki 2025</span>
-                <span><i class="fas fa-eye" style="margin-right: 4px;"></i>850 görüntülenme</span>
-              </div>
-              <h3 class="blog-title" style="font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; line-height: 1.4; color: #1e293b;">
-                LED Aydınlatmaya Geçiş Rehberi
-              </h3>
-              <p class="blog-excerpt" style="color: #64748b; line-height: 1.6; margin-bottom: 16px;">
-                Doğru lumen, renk sıcaklığı ve CRI seçimiyle %80'e varan enerji tasarrufu sağlayın. LED seçiminde dikkat edilecek teknik detaylar ve pratik öneriler.
-              </p>
-              <div class="blog-tags" style="display: flex; gap: 8px; margin-bottom: 12px;">
-                <span style="background: #dcfce7; color: #16a34a; padding: 2px 8px; border-radius: 8px; font-size: 0.75rem;">LED</span>
-                <span style="background: #dbeafe; color: #2563eb; padding: 2px 8px; border-radius: 8px; font-size: 0.75rem;">aydınlatma</span>
-              </div>
-              <span class="blog-cta" style="color: #3b82f6; font-weight: 600; font-size: 0.875rem;">
-                Devamını Oku <i class="fas fa-arrow-right" style="margin-left: 4px;"></i>
-              </span>
-            </div>
+          <a href="tel:+905010415526" class="btn-ghost">
+            <i class="fas fa-phone"></i>
+            <span>0501 041 5526</span>
           </a>
-        </article>
-
-        <article class="blog-card featured" style="position: relative; overflow: hidden; background: white; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.1)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='0 1px 3px rgba(0, 0, 0, 0.05)'; this.style.transform='translateY(0)';">
-          <a class="blog-link" href="/blog/elektrik-kacagi-belirtileri-ve-cozumleri.html" style="display: block; text-decoration: none; color: inherit;">
-            <div class="blog-image-container" style="position: relative; overflow: hidden; border-radius: 12px 12px 0 0;">
-              <img class="blog-thumb lazy-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="../images/blog/blogyazi3.webp" alt="Elektrik kaçağı belirtileri ve çözümleri - Güvenlik kontrolü" loading="lazy" decoding="async" width="480" height="270" style="width: 100%; height: 200px; object-fit: cover; transition: transform 0.3s ease;">
-              <div class="blog-category-badge" style="position: absolute; top: 12px; left: 12px; background: #ea580c; color: white; padding: 4px 12px; border-radius: 16px; font-size: 0.75rem; font-weight: 600;">
-                GÜVENLİK
-              </div>
-              <div class="reading-time" style="position: absolute; top: 12px; right: 12px; background: rgba(0,0,0,0.7); color: white; padding: 4px 8px; border-radius: 8px; font-size: 0.75rem;">
-                <i class="fas fa-clock" style="margin-right: 4px;"></i>10 dk
-              </div>
-            </div>
-            <div class="blog-content" style="padding: 20px; border-radius: 0 0 12px 12px;">
-              <div class="blog-meta" style="display: flex; align-items: center; gap: 16px; margin-bottom: 12px; font-size: 0.875rem; color: #64748b;">
-                <span><i class="fas fa-calendar" style="margin-right: 4px;"></i>13 Kas 2025</span>
-                <span><i class="fas fa-eye" style="margin-right: 4px;"></i>940 görüntülenme</span>
-              </div>
-              <h3 class="blog-title" style="font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; line-height: 1.4; color: #1e293b;">
-                Elektrik Kaçağı: Belirtiler ve Çözümler
-              </h3>
-              <p class="blog-excerpt" style="color: #64748b; line-height: 1.6; margin-bottom: 16px;">
-                Yüksek fatura, çarpılma riski ve ısınma gibi elektrik kaçağı belirtilerini zamanında fark edin. Profesyonel ölçüm ve çözüm yöntemleri.
-              </p>
-              <div class="blog-tags" style="display: flex; gap: 8px; margin-bottom: 12px;">
-                <span style="background: #fed7aa; color: #ea580c; padding: 2px 8px; border-radius: 8px; font-size: 0.75rem;">kaçak akım</span>
-                <span style="background: #fee2e2; color: #dc2626; padding: 2px 8px; border-radius: 8px; font-size: 0.75rem;">güvenlik</span>
-              </div>
-              <span class="blog-cta" style="color: #3b82f6; font-weight: 600; font-size: 0.875rem;">
-                Devamını Oku <i class="fas fa-arrow-right" style="margin-left: 4px;"></i>
-              </span>
-            </div>
+          <a href="https://wa.me/905537985901" class="btn-secondary">
+            <i class="fab fa-whatsapp"></i>
+            <span>WhatsApp</span>
           </a>
-        </article>
-      </div>
-    </section>
-
-    <!-- Call to Action -->
-    <section class="blog-cta-section" style="background: #1e293b; color: white; padding: 48px 32px; border-radius: 8px; text-align: center; margin-top: 48px;">
-      <h2 style="font-size: 2rem; font-weight: 600; margin-bottom: 16px;">
-        Elektrik Hizmeti Gerekiyor mu?
-      </h2>
-      <p style="font-size: 1.125rem; margin-bottom: 32px; opacity: 0.9; color: #e2e8f0;">
-        Samsun'da profesyonel elektrikçi hizmeti için iletişime geçin. Uzman ekibimiz kısa sürede yanınızda.
-      </p>
-      <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; align-items: center; padding: 0 16px;">
-        <a href="tel:+905537985901" class="btn-primary" style="background: white; color: #1e293b; padding: 12px 16px; border-radius: 6px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; font-size: clamp(0.8rem, 2.5vw, 0.9rem); min-width: fit-content;">
-          <i class="fas fa-phone"></i>
-          <span style="white-space: nowrap;">0553 798 5901</span>
-        </a>
-        <a href="tel:+905010415526" class="btn-primary" style="background: white; color: #1e293b; padding: 12px 16px; border-radius: 6px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; font-size: clamp(0.8rem, 2.5vw, 0.9rem); min-width: fit-content;">
-          <i class="fas fa-phone"></i>
-          <span style="white-space: nowrap;">0501 041 5526</span>
-        </a>
-        <a href="https://wa.me/905537985901" class="btn-secondary" style="background: #64748b; color: white; padding: 12px 16px; border-radius: 6px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; font-size: clamp(0.8rem, 2.5vw, 0.9rem); min-width: fit-content;">
-          <i class="fab fa-whatsapp"></i>
-          <span>WhatsApp</span>
-        </a>
-      </div>
-    </section>
+        </div>
+      </section>
+    </div>
   </main>
 
   <footer class="footer" role="contentinfo">
