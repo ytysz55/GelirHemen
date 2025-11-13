@@ -247,7 +247,7 @@
 </head>
 <body>
     <!-- Header -->
-    <header class="header" role="banner">
+    <header class="header">
         <div class="container">
             <div class="header-brand">
                 <a href="/" class="brand-link" aria-label="GelirHemen Ana Sayfa">
@@ -276,7 +276,7 @@
                             <i class="fas fa-user-tie"></i>
                         </div>
                         <div class="employee-info">
-                            <h2 class="employee-name" itemprop="name">Mehmet Köksal <i class="fas fa-check-circle verified" aria-label="Doğrulanmış Uzman"></i></h2>
+                            <h2 class="employee-name" itemprop="name">Mehmet Köksal <i class="fas fa-check-circle verified" aria-hidden="true"></i></h2>
                             <p class="employee-location" itemprop="address"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Samsun / Atakum</p>
                             <p class="employee-desc" itemprop="description">Uzman elektrikçi hizmetlerimizle, tüm elektrik ihtiyaçlarınızda hızlı, ekonomik ve kaliteli çözümler sunmaktayız. 7/24 kesintisiz hizmetinizdeyiz.</p>
                         </div>
@@ -322,7 +322,7 @@
                             <i class="fas fa-user-tie"></i>
                         </div>
                         <div class="employee-info">
-                            <h2 class="employee-name" itemprop="name">Yunus Emre Bayar <i class="fas fa-check-circle verified" aria-label="Doğrulanmış Uzman"></i></h2>
+                            <h2 class="employee-name" itemprop="name">Yunus Emre Bayar <i class="fas fa-check-circle verified" aria-hidden="true"></i></h2>
                             <p class="employee-location" itemprop="address"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Samsun / İlkadım</p>
                             <p class="employee-desc" itemprop="description">Elektrik altyapınız için profesyonel çözümler sunuyoruz. Kesintisiz, güvenli ve ekonomik hizmetlerimizle 7/24 hizmetinizdeyiz.</p>
                         </div>
@@ -367,8 +367,8 @@
     <!-- Service Info Section -->
     <section id="hizmetler" class="service-info-section" aria-label="Hizmet Bilgileri">
         <picture class="service-bg">
-            <source data-srcset="images/ana.webp" type="image/webp" media="(min-width: 768px)">
-            <source data-srcset="images/ana.webp" type="image/webp">
+            <source data-srcset="images/ana.webp" type="image/webp" media="(min-width: 768px)" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+            <source data-srcset="images/ana.webp" type="image/webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
             <img class="lazy-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="images/ana.webp" data-srcset="images/ana.webp 1200w, images/ana.webp 1920w" data-sizes="100vw"
                  alt="Samsun elektrikçi hizmeti arka planı" loading="lazy" decoding="async" width="1920" height="1080">
         </picture>
@@ -627,7 +627,8 @@
                 </div>
             </div>
             <div class="faq-list" role="list">
-                <article class="faq-item" role="listitem">
+                <article class="faq-item">
+                    <h3>Samsun'da 7/24 acil elektrikçi hizmeti veriyor musunuz?</h3>
                     <button class="faq-toggle" type="button" aria-expanded="false">
                         <span class="faq-question">Samsun'da 7/24 acil elektrikçi hizmeti veriyor musunuz?</span>
                         <span class="faq-icon" aria-hidden="true"><i class="fas fa-chevron-down"></i></span>
@@ -636,7 +637,8 @@
                         <p class="faq-answer">Evet. Samsun'un tüm ilçelerinde bulunan ustalarımızla gece-gündüz acil elektrik arıza, sigorta atma ve kaçak gibi sorunlara hızlıca müdahale ediyoruz.</p>
                     </div>
                 </article>
-                <article class="faq-item" role="listitem">
+                <article class="faq-item">
+                    <h3>Hizmet öncesi fiyat bilgisini nasıl alabilirim?</h3>
                     <button class="faq-toggle" type="button" aria-expanded="false">
                         <span class="faq-question">Hizmet öncesi fiyat bilgisini nasıl alabilirim?</span>
                         <span class="faq-icon" aria-hidden="true"><i class="fas fa-chevron-down"></i></span>
@@ -645,7 +647,8 @@
                         <p class="faq-answer">Sorununuzu telefon ya da WhatsApp üzerinden anlattığınızda ön keşif yapıp yaklaşık maliyet paylaşıyoruz. İşe başlamadan önce net fiyatı onayınıza sunuyoruz.</p>
                     </div>
                 </article>
-                <article class="faq-item" role="listitem">
+                <article class="faq-item">
+                    <h3>Avize montajı, priz ekleme ve elektrik tesisatı yenilemesi yapıyor musunuz?</h3>
                     <button class="faq-toggle" type="button" aria-expanded="false">
                         <span class="faq-question">Avize montajı, priz ekleme ve elektrik tesisatı yenilemesi yapıyor musunuz?</span>
                         <span class="faq-icon" aria-hidden="true"><i class="fas fa-chevron-down"></i></span>
@@ -654,7 +657,8 @@
                         <p class="faq-answer">Evet, konut ve iş yerlerinde avize ve aydınlatma montajı, priz ve sigorta ilavesi, elektrik panosu ve tesisat yenilemesi dahil tüm elektrik işlerini üstleniyoruz.</p>
                     </div>
                 </article>
-                <article class="faq-item" role="listitem">
+                <article class="faq-item">
+                    <h3>Hangi ilçelerde hizmet veriyorsunuz?</h3>
                     <button class="faq-toggle" type="button" aria-expanded="false">
                         <span class="faq-question">Hangi ilçelerde hizmet veriyorsunuz?</span>
                         <span class="faq-icon" aria-hidden="true"><i class="fas fa-chevron-down"></i></span>
@@ -716,7 +720,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer" role="contentinfo">
+    <footer class="footer">
         <div class="footer-main">
             <div class="container">
                 <div class="footer-grid">
@@ -729,9 +733,9 @@
                         </a>
                         <p class="footer-desc">Samsun'da 7/24 profesyonel elektrikçi hizmeti. Hızlı, güvenilir ve uygun fiyat.</p>
                         <div class="footer-social" role="navigation" aria-label="Sosyal Medya Bağlantıları">
-                            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram'da Takip Edin"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-                            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebook'ta Beğenin"><i class="fab fa-facebook" aria-hidden="true"></i></a>
-                            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp ile İletişime Geçin"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                            <a href="https://www.instagram.com/gelirhemen" target="_blank" rel="noopener noreferrer" aria-label="Instagram'da Takip Edin"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                            <a href="https://www.facebook.com/gelirhemen" target="_blank" rel="noopener noreferrer" aria-label="Facebook'ta Beğenin"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                            <a href="https://wa.me/905537985901" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp ile İletişime Geçin"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
                         </div>
                     </div>
                     <div class="footer-col">
