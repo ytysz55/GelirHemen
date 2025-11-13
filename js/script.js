@@ -1,12 +1,16 @@
 // Smooth scroll for anchor links
+const header = document.querySelector('.header');
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+            const headerHeight = header ? header.offsetHeight : 0;
+            const targetPosition = target.offsetTop - headerHeight;
+            
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
             });
         }
     });
@@ -14,19 +18,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Phone and WhatsApp links are now handled directly via HTML href attributes
 
-// Contact button functionality (only apply smooth scroll when a button element is used)
-const contactButton = document.querySelector('.btn-contact');
-if (contactButton && contactButton.tagName !== 'A') {
-    contactButton.addEventListener('click', () => {
-        const heroSection = document.querySelector('.hero-section');
-        if (heroSection) {
-            heroSection.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
-}
+// Contact button functionality - WhatsApp redirect handled via HTML href
+// No additional JavaScript needed as btn-contact is now an anchor tag
 
 // Intersection Observer for scroll animations
 const observerOptions = {
@@ -64,11 +57,9 @@ if (serviceSection && serviceSectionBgImage) {
         const sectionHeight = serviceSection.offsetHeight;
 
         if ((scrollY + viewportHeight) > sectionTop && scrollY < (sectionTop + sectionHeight)) {
-            const parallaxSpeed = 0.2;
+            const parallaxSpeed = 0.15;
             const offset = (scrollY - sectionTop) * parallaxSpeed;
             serviceSectionBgImage.style.transform = `translateY(${offset}px)`;
-        } else {
-            serviceSectionBgImage.style.transform = 'translateY(0)';
         }
     };
 
@@ -342,7 +333,7 @@ function updateStructuredDataForDistrict() {
                     script.textContent = JSON.stringify(schemaData, null, 2);
                 }
             } catch (error) {
-                console.error('Error updating structured data schema:', error);
+                // Schema update error - silently fail
             }
         });
 
@@ -363,7 +354,7 @@ function updateStructuredDataForDistrict() {
                     breadcrumbScript.textContent = JSON.stringify(breadcrumbData, null, 2);
                 }
             } catch (e) {
-                console.error('Error updating breadcrumb data:', e);
+                // Breadcrumb update error - silently fail
             }
         }
     }
@@ -509,13 +500,12 @@ window.addEventListener('scroll', debouncedScroll);
 window.addEventListener('load', () => {
     document.body.classList.add('loaded');
     
-    // Trigger animations after page load
-    setTimeout(() => {
-        const header = document.querySelector('.header-title');
-        if (header) {
-            header.style.opacity = '1';
+    // Fade in all lazy images
+    document.querySelectorAll('.lazy-image').forEach(img => {
+        if (img.complete) {
+            img.classList.add('loaded');
         }
-    }, 100);
+    });
 });
 
 // Mobile menu toggle (if needed in future)
@@ -524,23 +514,6 @@ if (mobileMenuToggle) {
     mobileMenuToggle.addEventListener('click', () => {
         document.querySelector('.nav-menu').classList.toggle('active');
     });
-}
-
-// Form validation (if contact form is added)
-function validateForm(form) {
-    const inputs = form.querySelectorAll('input[required], textarea[required]');
-    let isValid = true;
-
-    inputs.forEach(input => {
-        if (!input.value.trim()) {
-            isValid = false;
-            input.classList.add('error');
-        } else {
-            input.classList.remove('error');
-        }
-    });
-
-    return isValid;
 }
 
 // Add smooth reveal animation for elements

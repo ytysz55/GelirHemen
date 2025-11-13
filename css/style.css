@@ -259,6 +259,55 @@ body {
     color: #ffffff;
 }
 
+/* District Hero Section */
+.district-hero {
+    text-align: center;
+    padding: 30px 20px;
+    background: linear-gradient(135deg, var(--primary-orange), #ff8c61);
+    border-radius: 12px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 16px rgba(255, 107, 53, 0.2);
+}
+
+.district-hero-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.district-hero-subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .district-hero {
+        padding: 25px 15px;
+        margin-bottom: 30px;
+    }
+    
+    .district-hero-title {
+        font-size: 1.8rem;
+    }
+    
+    .district-hero-subtitle {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .district-hero-title {
+        font-size: 1.5rem;
+    }
+    
+    .district-hero-subtitle {
+        font-size: 0.9rem;
+    }
+}
+
 /* Hero Section - Employee Cards */
 .hero-section {
     padding: 40px 0;
