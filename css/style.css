@@ -34,7 +34,12 @@ body {
     line-height: 1.6;
     color: var(--text-dark);
     background-color: var(--bg-light);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
+
+main { flex: 1; }
 
 .container {
     max-width: 1200px;
@@ -135,6 +140,7 @@ body {
 .blog-content { padding: 14px 16px 16px; }
 .blog-title { font-size: 1.05rem; line-height: 1.4; margin-bottom: 8px; }
 .blog-excerpt { color: var(--text-gray); font-size: 0.95rem; }
+.blog-meta-small { display:block; color: var(--text-gray); font-size: 0.85rem; margin-bottom: 6px; }
 .blog-cta { display: inline-block; margin-top: 10px; color: var(--primary-orange); font-weight: 600; }
 
 .blog-actions { margin-top: 20px; text-align: center; }
@@ -185,6 +191,19 @@ body {
 .breadcrumbs { color: var(--text-gray); font-size: 0.93rem; margin-bottom: 12px; }
 .breadcrumbs a { color: var(--text-gray); text-decoration: none; }
 .breadcrumbs a:hover { text-decoration: underline; }
+
+/* Blog Hero */
+.blog-hero {
+  margin: 14px 0 18px;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(15,23,42,0.06);
+}
+.blog-hero img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
 
 .faq-subtitle {
     margin-top: 12px;
