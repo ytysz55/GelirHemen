@@ -54,7 +54,7 @@
     </div>
   </header>
 
-  <main id="main-content" class="container" style="padding: 40px 0; max-width: 1400px;">
+  <main id="main-content" class="container" style="padding: 40px 20px; max-width: 1400px;">
     <nav class="breadcrumbs" aria-label="breadcrumbs" style="margin-bottom: 32px; font-size: 0.875rem;">
       <a href="/" style="color: #64748b; text-decoration: none;">Ana Sayfa</a> 
       <i class="fas fa-chevron-right" style="color: #cbd5e1; margin: 0 8px; font-size: 0.75rem;"></i>
@@ -88,10 +88,20 @@
     </div>
 
     <!-- Two Column Layout -->
-    <div class="article-layout" style="display: grid; grid-template-columns: 300px 1fr; gap: 48px; align-items: start;">
+    <div class="article-layout" style="display: grid; grid-template-columns: 1fr; gap: 32px; align-items: start;">
+    <style>
+      @media (min-width: 768px) {
+        .article-layout { grid-template-columns: 280px 1fr !important; gap: 40px !important; }
+      }
+    </style>
       
       <!-- Sidebar TOC -->
-      <aside class="article-sidebar" style="position: sticky; top: 24px;">
+      <aside class="article-sidebar" style="position: relative; order: 2;">
+      <style>
+        @media (min-width: 768px) {
+          .article-sidebar { position: sticky !important; top: 24px !important; order: 0 !important; }
+        }
+      </style>
         <div class="toc-container" style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px;">
           <h3 style="color: #1e293b; margin-bottom: 20px; display: flex; align-items: center; font-size: 1.125rem; font-weight: 700;">
             <i class="fas fa-list" style="margin-right: 10px; color: #3b82f6;"></i>İçindekiler
@@ -128,7 +138,12 @@
       </aside>
 
       <!-- Main Content Area -->
-      <div class="article-content" style="max-width: none;">
+      <div class="article-content" style="max-width: none; order: 1;">
+      <style>
+        @media (min-width: 768px) {
+          .article-content { order: 1 !important; }
+        }
+      </style>
         <article class="blog-article" style="font-size: 1.125rem; line-height: 1.8; color: #374151;">
       <div class="article-intro" style="background: #f8fafc; border-left: 4px solid #1e293b; padding: 24px; margin: 32px 0; border-radius: 8px;">
         <p style="margin: 0; font-weight: 500; color: #475569; font-size: 1.1rem;">

@@ -82,14 +82,14 @@
     </div>
   </header>
 
-  <main id="main-content" class="container" style="padding: 40px 0;">
+  <main id="main-content" class="container" style="padding: 40px 20px;">
     <!-- Blog Hero Section -->
     <section class="blog-hero-section" style="text-align: center; margin-bottom: 48px;">
-      <h1 class="section-title" style="font-size: 2.5rem; margin-bottom: 16px;">Elektrikçi Blog</h1>
-      <p class="section-subtitle" style="font-size: 1.25rem; color: #64748b; max-width: 600px; margin: 0 auto;">
+      <h1 class="section-title" style="font-size: clamp(2rem, 5vw, 2.5rem); margin-bottom: 16px;">Elektrikçi Blog</h1>
+      <p class="section-subtitle" style="font-size: clamp(1rem, 3vw, 1.25rem); color: #64748b; max-width: 600px; margin: 0 auto; padding: 0 16px;">
         Elektrik arızalarından LED aydınlatmaya, güvenlikten enerji tasarrufuna kadar uzman rehberleri ve pratik çözümler
       </p>
-      <div class="blog-categories" style="margin-top: 32px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+      <div class="blog-categories" style="margin-top: 32px; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; padding: 0 16px;">
         <span class="category-tag" style="background: #f8fafc; border: 1px solid #e2e8f0; color: #64748b; padding: 8px 16px; border-radius: 6px; font-size: 0.875rem; font-weight: 500;">
           <i class="fas fa-bolt" style="margin-right: 6px; color: #64748b;"></i>Acil Arızalar
         </span>
@@ -110,7 +110,7 @@
       <h2 style="font-size: 1.875rem; font-weight: 700; margin-bottom: 24px; color: #1e293b;">
         <i class="fas fa-star" style="color: #f59e0b; margin-right: 8px;"></i>Öne Çıkan Makaleler
       </h2>
-      <div class="blog-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px;">
+      <div class="blog-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
         <article class="blog-card featured" style="position: relative; overflow: hidden; background: white; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.1)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='0 1px 3px rgba(0, 0, 0, 0.05)'; this.style.transform='translateY(0)';">
           <a class="blog-link" href="/blog/acil-durumda-elektrik-arizasi-nasil-yonetilir.html" style="display: block; text-decoration: none; color: inherit;">
             <div class="blog-image-container" style="position: relative; overflow: hidden; border-radius: 12px 12px 0 0;">
@@ -220,18 +220,18 @@
       <p style="font-size: 1.125rem; margin-bottom: 32px; opacity: 0.9; color: #e2e8f0;">
         Samsun'da profesyonel elektrikçi hizmeti için iletişime geçin. Uzman ekibimiz kısa sürede yanınızda.
       </p>
-      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; align-items: center;">
-        <a href="tel:+905537985901" class="btn-primary" style="background: white; color: #1e293b; padding: 14px 20px; border-radius: 6px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; font-size: 0.9rem;">
+      <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; align-items: center; padding: 0 16px;">
+        <a href="tel:+905537985901" class="btn-primary" style="background: white; color: #1e293b; padding: 12px 16px; border-radius: 6px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; font-size: clamp(0.8rem, 2.5vw, 0.9rem); min-width: fit-content;">
           <i class="fas fa-phone"></i>
-          0553 798 5901
+          <span style="white-space: nowrap;">0553 798 5901</span>
         </a>
-        <a href="tel:+905010415526" class="btn-primary" style="background: white; color: #1e293b; padding: 14px 20px; border-radius: 6px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; font-size: 0.9rem;">
+        <a href="tel:+905010415526" class="btn-primary" style="background: white; color: #1e293b; padding: 12px 16px; border-radius: 6px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; font-size: clamp(0.8rem, 2.5vw, 0.9rem); min-width: fit-content;">
           <i class="fas fa-phone"></i>
-          0501 041 5526
+          <span style="white-space: nowrap;">0501 041 5526</span>
         </a>
-        <a href="https://wa.me/905537985901" class="btn-secondary" style="background: #64748b; color: white; padding: 14px 20px; border-radius: 6px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; font-size: 0.9rem;">
+        <a href="https://wa.me/905537985901" class="btn-secondary" style="background: #64748b; color: white; padding: 12px 16px; border-radius: 6px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; font-size: clamp(0.8rem, 2.5vw, 0.9rem); min-width: fit-content;">
           <i class="fab fa-whatsapp"></i>
-          WhatsApp
+          <span>WhatsApp</span>
         </a>
       </div>
     </section>
