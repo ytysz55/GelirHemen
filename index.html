@@ -244,12 +244,22 @@
     </script>
 </head>
 <body>
+    <!-- Top Bar -->
+    <div class="top-bar" role="note" aria-label="Hizmet Bilgisi">
+        <div class="container">
+            <span class="top-bar-text">Samsun Elektrikçi Hizmeti &bull; 7/24 Acil Elektrik Tamiri</span>
+        </div>
+    </div>
+
     <!-- Header -->
     <header class="header" role="banner">
         <div class="container">
             <div class="header-brand">
                 <a href="/" class="brand-link" aria-label="GelirHemen Ana Sayfa">
-                    <img src="images/SVG/logo.svg" alt="GelirHemen Logosu" class="brand-logo" width="160" height="48">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="images/SVG/logo.svg" alt="GelirHemen Logosu" class="brand-logo lazy-image" loading="lazy" decoding="async" width="160" height="48">
+                    <noscript>
+                        <img src="images/SVG/logo.svg" alt="GelirHemen Logosu" class="brand-logo" width="160" height="48">
+                    </noscript>
                 </a>
             </div>
         </div>
@@ -359,12 +369,21 @@
     <!-- Service Info Section -->
     <section id="hizmetler" class="service-info-section" aria-label="Hizmet Bilgileri">
         <picture class="service-bg">
-            <source srcset="images/ana.webp" type="image/webp" media="(min-width: 768px)">
-            <source srcset="images/ana.webp" type="image/webp">
-            <source srcset="image.png" type="image/png">
-            <img src="images/ana.webp" srcset="images/ana.webp 1200w, images/ana.webp 1920w" sizes="100vw"
+            <source data-srcset="images/ana.webp" type="image/webp" media="(min-width: 768px)">
+            <source data-srcset="images/ana.webp" type="image/webp">
+            <source data-srcset="image.png" type="image/png">
+            <img class="lazy-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="images/ana.webp" data-srcset="images/ana.webp 1200w, images/ana.webp 1920w" data-sizes="100vw"
                  alt="Samsun elektrikçi hizmeti arka planı" loading="lazy" decoding="async" width="1920" height="1080">
         </picture>
+        <noscript>
+            <picture class="service-bg">
+                <source srcset="images/ana.webp" type="image/webp" media="(min-width: 768px)">
+                <source srcset="images/ana.webp" type="image/webp">
+                <source srcset="image.png" type="image/png">
+                <img src="images/ana.webp" srcset="images/ana.webp 1200w, images/ana.webp 1920w" sizes="100vw"
+                     alt="Samsun elektrikçi hizmeti arka planı" loading="lazy" decoding="async" width="1920" height="1080">
+            </picture>
+        </noscript>
         <div class="service-overlay">
             <div class="container">
                 <div class="service-features">
@@ -409,9 +428,9 @@
                     <p class="cta-text">
                         <strong>Aklınıza takılan</strong> soruları bize sorun, <strong>ücretsiz</strong> olarak size yardımcı olalım.
                     </p>
-                    <button class="btn-contact">
-                        Hemen İletişime Geç! <i class="fas fa-arrow-right"></i>
-                    </button>
+                    <a href="https://wa.me/905537985901" class="btn-contact" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp ile hemen iletişime geç">
+                        Hemen İletişime Geç! <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
                 </div>
             </div>
         </div>
@@ -662,7 +681,10 @@
                 <div class="footer-grid">
                     <div class="footer-col">
                         <a href="/" class="footer-brand brand-link" aria-label="GelirHemen Ana Sayfa">
-                            <img src="images/SVG/logo.svg" alt="GelirHemen Logosu" class="brand-logo" width="150" height="45">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="images/SVG/logo.svg" alt="GelirHemen Logosu" class="brand-logo lazy-image" loading="lazy" decoding="async" width="150" height="45">
+                            <noscript>
+                                <img src="images/SVG/logo.svg" alt="GelirHemen Logosu" class="brand-logo" width="150" height="45">
+                            </noscript>
                         </a>
                         <p class="footer-desc">Samsun'da 7/24 profesyonel elektrikçi hizmeti. Hızlı, güvenilir ve uygun fiyat.</p>
                         <div class="footer-social" role="navigation" aria-label="Sosyal Medya Bağlantıları">

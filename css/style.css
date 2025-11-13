@@ -1,3 +1,27 @@
+:root {
+    --top-bar-bg: rgba(15, 23, 42, 0.92);
+    --top-bar-text: rgba(255, 255, 255, 0.82);
+}
+
+.top-bar {
+    background: var(--top-bar-bg);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 6px 0;
+    font-size: 0.85rem;
+}
+
+.top-bar .container {
+    display: flex;
+    justify-content: center;
+}
+
+.top-bar-text {
+    color: var(--top-bar-text);
+    letter-spacing: 0.4px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -171,7 +195,7 @@ body {
 /* Header */
 .header {
     background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-    padding: 12px 0;
+    padding: 16px 0;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -181,7 +205,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     min-height: 60px;
+    gap: 16px;
+    text-align: center;
 }
 
 .header::before {
@@ -198,6 +225,9 @@ body {
 .header-brand {
     display: flex;
     justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
 }
 
 .brand-link {
@@ -213,6 +243,11 @@ body {
     height: auto;
 }
 
+.header-brand .brand-logo {
+    width: 140px;
+    max-width: 100%;
+}
+
 .footer-brand {
     display: inline-flex;
     align-items: center;
@@ -224,24 +259,19 @@ body {
     color: #ffffff;
 }
 
-.footer .brand-text {
-    font-size: 1.2rem;
-}
-
-.header-title::after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 2px;
-    background: linear-gradient(90deg, var(--primary-orange), var(--primary-green));
-    margin: 15px auto 0;
-    border-radius: 2px;
-}
-
 /* Hero Section - Employee Cards */
 .hero-section {
     padding: 40px 0;
     background-color: var(--bg-light);
+}
+
+.lazy-image {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.lazy-image.loaded {
+    opacity: 1;
 }
 
 .employee-cards {
@@ -745,16 +775,24 @@ body {
     font-weight: 600;
     border-radius: 6px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
     display: inline-flex;
     align-items: center;
     gap: 10px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    text-decoration: none;
 }
 
-.btn-contact:hover {
+.btn-contact:hover,
+.btn-contact:focus-visible {
     background: #e55a2b;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.18);
+    transform: translateY(-1px);
+}
+
+.btn-contact:focus-visible {
+    outline: 3px solid rgba(16, 185, 129, 0.35);
+    outline-offset: 3px;
 }
 
 /* Districts Section */
@@ -1301,16 +1339,40 @@ body {
 }
 
 @media (max-width: 768px) {
+    .top-bar {
+        padding: 8px 0;
+    }
+
+    .top-bar .container {
+        justify-content: flex-start;
+    }
+
+    .top-bar-text {
+        font-size: 0.8rem;
+        line-height: 1.3;
+        flex-wrap: wrap;
+    }
+
     .header .container {
-        gap: 20px;
-        min-height: 80px;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        min-height: 60px;
+        text-align: center;
+    }
+
+    .header {
+        padding: 10px 0;
+    }
+
+    .header-brand .brand-logo {
+        width: 120px;
     }
 
     .header-title {
-        font-size: 1.25rem;
-        padding: 0 15px;
-        line-height: 1.3;
-        white-space: normal;
+        font-size: 1.2rem;
+        padding: 0;
+        line-height: 1.35;
     }
 
     .hero-section {

@@ -14,11 +14,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Phone and WhatsApp links are now handled directly via HTML href attributes
 
-// Contact button functionality
+// Contact button functionality (only apply smooth scroll when a button element is used)
 const contactButton = document.querySelector('.btn-contact');
-if (contactButton) {
-    contactButton.addEventListener('click', function() {
-        // Scroll to employee cards or open WhatsApp
+if (contactButton && contactButton.tagName !== 'A') {
+    contactButton.addEventListener('click', () => {
         const heroSection = document.querySelector('.hero-section');
         if (heroSection) {
             heroSection.scrollIntoView({
@@ -53,20 +52,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Parallax effect for service section
-window.addEventListener('scroll', () => {
-    const serviceSection = document.querySelector('.service-info-section');
-    if (serviceSection) {
-        const scrolled = window.pageYOffset;
+// Parallax effect for service section background
+const serviceSection = document.querySelector('.service-info-section');
+const serviceSectionBgImage = serviceSection ? serviceSection.querySelector('.service-bg img') : null;
+
+if (serviceSection && serviceSectionBgImage) {
+    const updateParallax = () => {
+        const scrollY = window.pageYOffset;
+        const viewportHeight = window.innerHeight;
         const sectionTop = serviceSection.offsetTop;
         const sectionHeight = serviceSection.offsetHeight;
-        
-        if (scrolled > sectionTop - window.innerHeight && scrolled < sectionTop + sectionHeight) {
-            const parallaxSpeed = 0.5;
-            serviceSection.style.backgroundPositionY = `${(scrolled - sectionTop) * parallaxSpeed}px`;
+
+        if ((scrollY + viewportHeight) > sectionTop && scrollY < (sectionTop + sectionHeight)) {
+            const parallaxSpeed = 0.2;
+            const offset = (scrollY - sectionTop) * parallaxSpeed;
+            serviceSectionBgImage.style.transform = `translateY(${offset}px)`;
+        } else {
+            serviceSectionBgImage.style.transform = 'translateY(0)';
         }
-    }
-});
+    };
+
+    window.addEventListener('scroll', updateParallax, { passive: true });
+    window.addEventListener('resize', updateParallax);
+    updateParallax();
+}
 
 // Add hover effect to cards with scale animation
 const cards = document.querySelectorAll('.employee-card, .review-card, .district-item');
@@ -76,22 +85,64 @@ cards.forEach(card => {
     });
 });
 
-// Lazy loading for images
+// Lazy loading for images and responsive sources
+const loadLazyImage = (img) => {
+    if (!img) {
+        return;
+    }
+
+    const picture = img.closest('picture');
+    if (picture) {
+        picture.querySelectorAll('source[data-srcset]').forEach(source => {
+            if (source.dataset.srcset) {
+                source.srcset = source.dataset.srcset;
+                source.removeAttribute('data-srcset');
+            }
+            if (source.dataset.sizes) {
+                source.sizes = source.dataset.sizes;
+                source.removeAttribute('data-sizes');
+            }
+        });
+    }
+
+    if (img.dataset.src) {
+        img.src = img.dataset.src;
+        img.removeAttribute('data-src');
+    }
+
+    if (img.dataset.srcset) {
+        img.srcset = img.dataset.srcset;
+        img.removeAttribute('data-srcset');
+    }
+
+    if (img.dataset.sizes) {
+        img.sizes = img.dataset.sizes;
+        img.removeAttribute('data-sizes');
+    }
+
+    img.classList.add('loaded');
+};
+
 if ('IntersectionObserver' in window) {
     const imageObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.classList.add('loaded');
-                observer.unobserve(img);
+            if (!entry.isIntersecting) {
+                return;
             }
+
+            const img = entry.target;
+            loadLazyImage(img);
+            observer.unobserve(img);
         });
+    }, {
+        rootMargin: '0px 0px 100px 0px'
     });
 
     document.querySelectorAll('img[data-src]').forEach(img => {
         imageObserver.observe(img);
     });
+} else {
+    document.querySelectorAll('img[data-src]').forEach(img => loadLazyImage(img));
 }
 
 // Add ripple effect to buttons
@@ -491,10 +542,6 @@ function validateForm(form) {
 
     return isValid;
 }
-
-// Console log for debugging
-console.log('GelirHemen - Samsun Elektrikçi Hizmeti loaded successfully!');
-console.log('All animations and interactions are ready.');
 
 // Add smooth reveal animation for elements
 const revealElements = () => {
