@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Parallax effect for service section background
+// Parallax effect for service section background (throttled with debounce)
 const serviceSection = document.querySelector('.service-info-section');
 const serviceSectionBgImage = serviceSection ? serviceSection.querySelector('.service-bg img') : null;
 
@@ -63,8 +63,9 @@ if (serviceSection && serviceSectionBgImage) {
         }
     };
 
-    window.addEventListener('scroll', updateParallax, { passive: true });
-    window.addEventListener('resize', updateParallax);
+    const debouncedParallax = debounce(updateParallax, 16);
+    window.addEventListener('scroll', debouncedParallax, { passive: true });
+    window.addEventListener('resize', debouncedParallax);
     updateParallax();
 }
 
@@ -337,26 +338,41 @@ function updateStructuredDataForDistrict() {
             }
         });
 
-        // Update breadcrumb structured data
-        const breadcrumbScript = document.querySelector('script[type="application/ld+json"]');
-        if (breadcrumbScript && breadcrumbScript.textContent.includes('BreadcrumbList')) {
+        // Update breadcrumb structured data across all ld+json scripts
+        const ldScripts = document.querySelectorAll('script[type="application/ld+json"]');
+        ldScripts.forEach(script => {
             try {
-                const breadcrumbData = JSON.parse(breadcrumbScript.textContent);
-                const alreadyExists = breadcrumbData.itemListElement.some(item => item.item === districtUrl);
+                const data = JSON.parse(script.textContent);
+                const findBreadcrumb = (obj) => {
+                    if (!obj) return null;
+                    if (Array.isArray(obj)) {
+                        for (const item of obj) {
+                            const found = findBreadcrumb(item);
+                            if (found) return found;
+                        }
+                        return null;
+                    }
+                    if (obj['@type'] === 'BreadcrumbList') return obj;
+                    return null;
+                };
 
-                if (!alreadyExists) {
-                    breadcrumbData.itemListElement.push({
-                        "@type": "ListItem",
-                        "position": breadcrumbData.itemListElement.length + 1,
-                        "name": `${districtName} Elektrikçi`,
-                        "item": districtUrl
-                    });
-                    breadcrumbScript.textContent = JSON.stringify(breadcrumbData, null, 2);
+                const breadcrumbData = findBreadcrumb(data);
+                if (breadcrumbData && Array.isArray(breadcrumbData.itemListElement)) {
+                    const alreadyExists = breadcrumbData.itemListElement.some(item => item.item === districtUrl);
+                    if (!alreadyExists) {
+                        breadcrumbData.itemListElement.push({
+                            "@type": "ListItem",
+                            "position": breadcrumbData.itemListElement.length + 1,
+                            "name": `${districtName} Elektrikçi`,
+                            "item": districtUrl
+                        });
+                        script.textContent = JSON.stringify(data, null, 2);
+                    }
                 }
             } catch (e) {
-                // Breadcrumb update error - silently fail
+                // ignore JSON parse errors
             }
-        }
+        });
     }
 }
 
@@ -364,6 +380,22 @@ function updateStructuredDataForDistrict() {
 document.addEventListener('DOMContentLoaded', () => {
     updateHeaderForDistrict();
     updateStructuredDataForDistrict();
+
+    // Update H1 when .header-title appears later in the DOM
+    const observeHeaderTitle = () => {
+        if (document.querySelector('.header-title')) {
+            updateHeaderForDistrict();
+            return true;
+        }
+        return false;
+    };
+    observeHeaderTitle();
+    const headerObserver = new MutationObserver(() => {
+        if (observeHeaderTitle()) {
+            headerObserver.disconnect();
+        }
+    });
+    headerObserver.observe(document.body, { childList: true, subtree: true });
 
     // FAQ accordion behavior
     const faqToggles = document.querySelectorAll('.faq-toggle');

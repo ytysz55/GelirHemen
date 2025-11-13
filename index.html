@@ -42,6 +42,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="images/favicon.png">
+    <meta name="theme-color" content="#0f172a">
     
     <!-- Structured Data - LocalBusiness Schema -->
     <script type="application/ld+json">
@@ -243,13 +246,6 @@
     </script>
 </head>
 <body>
-    <!-- Top Bar -->
-    <div class="top-bar" role="note" aria-label="Hizmet Bilgisi">
-        <div class="container">
-            <span class="top-bar-text">Samsun Elektrikçi Hizmeti &bull; 7/24 Acil Elektrik Tamiri</span>
-        </div>
-    </div>
-
     <!-- Header -->
     <header class="header" role="banner">
         <div class="container">
@@ -265,6 +261,9 @@
     </header>
 
     <main id="main-content">
+        <div class="container">
+            <h1 class="header-title sr-only">Samsun Elektrikçi - 7/24 Acil Elektrik Tamiri</h1>
+        </div>
 
     <!-- Hero Section - Employee Cards -->
     <section class="hero-section" aria-label="Elektrikçi Uzmanlarımız">
@@ -370,7 +369,6 @@
         <picture class="service-bg">
             <source data-srcset="images/ana.webp" type="image/webp" media="(min-width: 768px)">
             <source data-srcset="images/ana.webp" type="image/webp">
-            <source data-srcset="image.png" type="image/png">
             <img class="lazy-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="images/ana.webp" data-srcset="images/ana.webp 1200w, images/ana.webp 1920w" data-sizes="100vw"
                  alt="Samsun elektrikçi hizmeti arka planı" loading="lazy" decoding="async" width="1920" height="1080">
         </picture>
@@ -378,7 +376,6 @@
             <picture class="service-bg">
                 <source srcset="images/ana.webp" type="image/webp" media="(min-width: 768px)">
                 <source srcset="images/ana.webp" type="image/webp">
-                <source srcset="image.png" type="image/png">
                 <img src="images/ana.webp" srcset="images/ana.webp 1200w, images/ana.webp 1920w" sizes="100vw"
                      alt="Samsun elektrikçi hizmeti arka planı" loading="lazy" decoding="async" width="1920" height="1080">
             </picture>
@@ -436,7 +433,7 @@
     </section>
 
     <!-- Reviews Section -->
-    <section id="yorumlar" class="reviews-section" aria-label="Müşteri Yorumları" itemscope itemtype="https://schema.org/ReviewList">
+    <section id="yorumlar" class="reviews-section" aria-label="Müşteri Yorumları" itemscope itemtype="https://schema.org/ItemList">
         <div class="container">
             <h2 class="section-title" itemprop="name">Müşteri Yorumları</h2>
             <p class="section-subtitle">Samsun'da binlerce mutlu müşterimizin deneyimleri</p>
