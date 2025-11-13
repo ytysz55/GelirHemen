@@ -16,10 +16,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Phone and WhatsApp links are now handled directly via HTML href attributes
-
-// Contact button functionality - WhatsApp redirect handled via HTML href
-// No additional JavaScript needed as btn-contact is now an anchor tag
 
 // Intersection Observer for scroll animations
 const observerOptions = {
@@ -45,7 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Parallax kodu kaldırıldı (ölü kod temizliği)
 
 // Add hover effect to cards with scale animation
 const cards = document.querySelectorAll('.employee-card, .review-card, .district-item');
@@ -522,7 +517,6 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Eski placeholder scroll dinleyicisi kaldırıldı
 
 // Add active state to navigation on scroll
 const sections = document.querySelectorAll('section');
@@ -559,7 +553,6 @@ function debounce(func, wait) {
     };
 }
 
-// Kullanılmayan debouncedScroll kaldırıldı
 
 // Add loading animation
 window.addEventListener('load', () => {
