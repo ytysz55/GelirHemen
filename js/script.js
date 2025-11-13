@@ -45,29 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Parallax effect for service section background (throttled with debounce)
-const serviceSection = document.querySelector('.service-info-section');
-const serviceSectionBgImage = serviceSection ? serviceSection.querySelector('.service-bg img') : null;
-
-if (serviceSection && serviceSectionBgImage) {
-    const updateParallax = () => {
-        const scrollY = window.pageYOffset;
-        const viewportHeight = window.innerHeight;
-        const sectionTop = serviceSection.offsetTop;
-        const sectionHeight = serviceSection.offsetHeight;
-
-        if ((scrollY + viewportHeight) > sectionTop && scrollY < (sectionTop + sectionHeight)) {
-            const parallaxSpeed = 0.15;
-            const offset = (scrollY - sectionTop) * parallaxSpeed;
-            serviceSectionBgImage.style.transform = `translateY(${offset}px)`;
-        }
-    };
-
-    const debouncedParallax = debounce(updateParallax, 16);
-    window.addEventListener('scroll', debouncedParallax, { passive: true });
-    window.addEventListener('resize', debouncedParallax);
-    updateParallax();
-}
+// Parallax kodu kaldırıldı (ölü kod temizliği)
 
 // Add hover effect to cards with scale animation
 const cards = document.querySelectorAll('.employee-card, .review-card, .district-item');
@@ -475,16 +453,7 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Scroll to top functionality
-let scrollTimeout;
-window.addEventListener('scroll', () => {
-    clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(() => {
-        if (window.pageYOffset > 300) {
-            // Could add a scroll-to-top button here if needed
-        }
-    }, 100);
-});
+// Eski placeholder scroll dinleyicisi kaldırıldı
 
 // Add active state to navigation on scroll
 const sections = document.querySelectorAll('section');
@@ -521,12 +490,7 @@ function debounce(func, wait) {
     };
 }
 
-// Apply debounce to scroll handler
-const debouncedScroll = debounce(() => {
-    // Scroll handling logic here
-}, 10);
-
-window.addEventListener('scroll', debouncedScroll);
+// Kullanılmayan debouncedScroll kaldırıldı
 
 // Add loading animation
 window.addEventListener('load', () => {
@@ -539,6 +503,27 @@ window.addEventListener('load', () => {
         }
     });
 });
+
+// Back to top button logic
+const backToTopBtn = document.getElementById('backToTop');
+if (backToTopBtn) {
+    const toggleBackToTop = () => {
+        if (window.pageYOffset > 300) {
+            backToTopBtn.classList.add('visible');
+        } else {
+            backToTopBtn.classList.remove('visible');
+        }
+    };
+
+    const debouncedToggle = debounce(toggleBackToTop, 50);
+    window.addEventListener('scroll', debouncedToggle, { passive: true });
+    window.addEventListener('load', toggleBackToTop);
+
+    backToTopBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
 
 // Mobile menu toggle (if needed in future)
 const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
