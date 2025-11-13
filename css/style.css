@@ -103,6 +103,89 @@ body {
     margin: 0 auto;
 }
 
+/* Blog */
+.blog-section {
+    padding: 64px 0 72px;
+    background: #ffffff;
+}
+
+.blog-grid {
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.blog-card {
+    background: #fff;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(15, 23, 42, 0.12);
+}
+
+.blog-link { display: block; color: inherit; text-decoration: none; }
+.blog-thumb { width: 100%; height: 180px; object-fit: cover; display: block; }
+.blog-content { padding: 14px 16px 16px; }
+.blog-title { font-size: 1.05rem; line-height: 1.4; margin-bottom: 8px; }
+.blog-excerpt { color: var(--text-gray); font-size: 0.95rem; }
+.blog-cta { display: inline-block; margin-top: 10px; color: var(--primary-orange); font-weight: 600; }
+
+.blog-actions { margin-top: 20px; text-align: center; }
+
+@media (max-width: 992px) {
+  .blog-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .blog-grid { grid-template-columns: 1fr; }
+  .blog-thumb { height: 200px; }
+}
+
+/* Blog Article */
+.blog-article {
+  line-height: 1.8;
+  color: var(--text-dark);
+}
+.blog-article h2 { margin: 18px 0 10px; font-size: 1.35rem; }
+.blog-article h3 { margin: 14px 0 8px; font-size: 1.15rem; }
+.blog-article p { margin: 10px 0; }
+.blog-article ul { margin: 10px 0 10px 20px; }
+
+.blog-meta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: center;
+  color: var(--text-gray);
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+}
+.blog-meta i { color: var(--primary-orange); }
+
+.blog-toc {
+  border: 1px solid rgba(226,232,240,0.8);
+  background: #fff;
+  border-radius: 12px;
+  padding: 14px;
+  margin: 18px 0 16px;
+}
+.blog-toc h3 { font-size: 1rem; margin-bottom: 8px; }
+.blog-toc ul { list-style: none; padding-left: 0; }
+.blog-toc li { margin: 6px 0; }
+.blog-toc a { color: var(--text-dark); text-decoration: none; }
+.blog-toc a:hover { color: var(--primary-orange); }
+
+.breadcrumbs { color: var(--text-gray); font-size: 0.93rem; margin-bottom: 12px; }
+.breadcrumbs a { color: var(--text-gray); text-decoration: none; }
+.breadcrumbs a:hover { text-decoration: underline; }
+
 .faq-subtitle {
     margin-top: 12px;
     color: var(--text-gray);

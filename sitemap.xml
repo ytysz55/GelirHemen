@@ -138,4 +138,30 @@
         <priority>0.6</priority>
     </url>
 
+    <!-- Blog -->
+    <url>
+        <loc>https://www.gelirhemen.com/blog/</loc>
+        <lastmod>2025-11-13</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://www.gelirhemen.com/blog/acil-durumda-elektrik-arizasi-nasil-yonetilir.html</loc>
+        <lastmod>2025-11-13</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://www.gelirhemen.com/blog/led-aydinlatmaya-gecis-rehberi.html</loc>
+        <lastmod>2025-11-13</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://www.gelirhemen.com/blog/elektrik-kacagi-belirtileri-ve-cozumleri.html</loc>
+        <lastmod>2025-11-13</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
 </urlset>

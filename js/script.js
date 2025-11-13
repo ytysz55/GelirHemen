@@ -399,6 +399,75 @@ document.addEventListener('DOMContentLoaded', () => {
             panel.hidden = isExpanded;
         });
     });
+
+    // Blog enhancements: TOC, reading time, breadcrumbs schema
+    const blogArticle = document.querySelector('.blog-article');
+    if (blogArticle) {
+        // Ensure headings have ids and build TOC
+        const headings = blogArticle.querySelectorAll('h2, h3');
+        const toc = document.querySelector('.blog-toc');
+        if (toc && headings.length) {
+            const ul = document.createElement('ul');
+            headings.forEach(h => {
+                if (!h.id) {
+                    const slug = (h.textContent || '').toLowerCase().trim()
+                        .replace(/[^a-z0-9ğüşöçı\s-]/gi, '')
+                        .replace(/\s+/g, '-');
+                    h.id = slug || `baslik-${Math.random().toString(36).slice(2, 8)}`;
+                }
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                a.href = `#${h.id}`;
+                a.textContent = h.textContent || '';
+                li.appendChild(a);
+                ul.appendChild(li);
+            });
+            toc.appendChild(ul);
+        }
+
+        // Reading time and meta
+        const text = blogArticle.textContent || '';
+        const words = text.trim().split(/\s+/).filter(Boolean).length;
+        const minutes = Math.max(1, Math.ceil(words / 180));
+        const metaBar = document.querySelector('.blog-meta');
+
+        // Try to read publish date from Article JSON-LD
+        let published = '';
+        const ld = document.querySelectorAll('script[type="application/ld+json"]');
+        for (const s of ld) {
+            try {
+                const data = JSON.parse(s.textContent);
+                if (data && data['@type'] === 'Article' && data.datePublished) {
+                    published = data.datePublished;
+                    break;
+                }
+            } catch {}
+        }
+        if (metaBar) {
+            metaBar.innerHTML = `
+                <span><i class="far fa-calendar"></i> ${published || ''}</span>
+                <span><i class="far fa-clock"></i> ${minutes} dk okuma</span>
+            `;
+        }
+
+        // BreadcrumbList JSON-LD
+        const pageTitle = document.title.replace(/\s*\|.*$/, '').trim();
+        const blogUrl = `${location.origin}/blog/`;
+        const currentUrl = location.href;
+        const breadcrumbLd = {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": location.origin + '/'},
+                {"@type": "ListItem", "position": 2, "name": "Blog", "item": blogUrl},
+                {"@type": "ListItem", "position": 3, "name": pageTitle, "item": currentUrl}
+            ]
+        };
+        const script = document.createElement('script');
+        script.type = 'application/ld+json';
+        script.textContent = JSON.stringify(breadcrumbLd);
+        document.head.appendChild(script);
+    }
 });
 
 // Toggle service tags
