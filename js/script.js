@@ -569,13 +569,74 @@ if (backToTopBtn) {
     });
 }
 
-// Mobile menu toggle (if needed in future)
-const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-if (mobileMenuToggle) {
-    mobileMenuToggle.addEventListener('click', () => {
-        document.querySelector('.nav-menu').classList.toggle('active');
+// Mobile navigation interactions
+const navToggle = document.querySelector('.nav-toggle');
+const mobileNav = document.getElementById('mobileNav');
+const navDismissTriggers = document.querySelectorAll('[data-nav-dismiss]');
+
+const focusableSelectors = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+let previouslyFocusedElement = null;
+
+const closeMobileNav = (focusToggle = true) => {
+    if (!mobileNav || mobileNav.hidden) {
+        return;
+    }
+
+    mobileNav.classList.remove('is-open');
+    document.body.classList.remove('mobile-nav-open');
+    navToggle?.setAttribute('aria-expanded', 'false');
+
+    const finalizeClose = () => {
+        mobileNav.hidden = true;
+        mobileNav.removeEventListener('transitionend', finalizeClose);
+    };
+
+    mobileNav.addEventListener('transitionend', finalizeClose);
+    window.setTimeout(finalizeClose, 260);
+
+    if (focusToggle && previouslyFocusedElement) {
+        previouslyFocusedElement.focus();
+    }
+};
+
+const openMobileNav = () => {
+    if (!mobileNav || !navToggle) {
+        return;
+    }
+
+    previouslyFocusedElement = document.activeElement instanceof HTMLElement ? document.activeElement : navToggle;
+    mobileNav.hidden = false;
+    requestAnimationFrame(() => {
+        mobileNav.classList.add('is-open');
+    });
+    document.body.classList.add('mobile-nav-open');
+    navToggle.setAttribute('aria-expanded', 'true');
+
+    const firstFocusable = mobileNav.querySelector(focusableSelectors);
+    if (firstFocusable instanceof HTMLElement) {
+        firstFocusable.focus();
+    }
+};
+
+if (navToggle && mobileNav) {
+    navToggle.addEventListener('click', () => {
+        if (mobileNav.hidden) {
+            openMobileNav();
+        } else {
+            closeMobileNav(false);
+        }
     });
 }
+
+navDismissTriggers.forEach(trigger => {
+    trigger.addEventListener('click', () => closeMobileNav());
+});
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+        closeMobileNav();
+    }
+});
 
 // Add smooth reveal animation for elements
 const revealElements = () => {
