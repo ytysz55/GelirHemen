@@ -44,15 +44,44 @@
   </script>
 </head>
 <body>
-  <header class="header" role="banner">
-    <div class="container">
-      <div class="header-brand">
-        <a href="/" class="brand-link" aria-label="GelirHemen Ana Sayfa">
-          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="../images/SVG/logo.svg" alt="GelirHemen Logosu" class="brand-logo lazy-image" loading="lazy" decoding="async" width="160" height="48">
-        </a>
-      </div>
+  <header class="header site-header" role="banner">
+    <div class="container site-header__inner">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobileNav">
+        <span class="sr-only">Menüyü Aç</span>
+        <i class="fas fa-bars" aria-hidden="true"></i>
+      </button>
+      <a href="/" class="brand-link site-header__logo" aria-label="GelirHemen Ana Sayfa">
+        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="../images/SVG/logo.svg" alt="GelirHemen Logosu" class="brand-logo lazy-image" loading="lazy" decoding="async" width="160" height="48">
+      </a>
+      <a href="tel:+905537985901" class="header-contact-btn">
+        <span>İletişime Geç</span>
+        <i class="fas fa-phone" aria-hidden="true"></i>
+      </a>
     </div>
   </header>
+
+  <div id="mobileNav" class="mobile-nav" hidden>
+    <div class="mobile-nav__backdrop" data-nav-dismiss></div>
+    <nav class="mobile-nav__panel" aria-label="Ana menü">
+      <button class="nav-close" type="button" data-nav-dismiss>
+        <span class="sr-only">Menüyü Kapat</span>
+        <i class="fas fa-times" aria-hidden="true"></i>
+      </button>
+      <ul class="mobile-nav__list">
+        <li><a href="/#hizmetler" data-nav-dismiss>Hizmetler</a></li>
+        <li><a href="/#yorumlar" data-nav-dismiss>Yorumlar</a></li>
+        <li><a href="/#ilceler" data-nav-dismiss>Hizmet Bölgeleri</a></li>
+        <li><a href="/#sss" data-nav-dismiss>SSS</a></li>
+        <li><a href="/blog/" data-nav-dismiss>Blog</a></li>
+        <li><a href="/#iletisim" data-nav-dismiss>İletişim</a></li>
+      </ul>
+      <div class="mobile-nav__cta">
+        <a href="tel:+905537985901" class="mobile-nav__action"><i class="fas fa-phone" aria-hidden="true"></i>0553 798 5901</a>
+        <a href="tel:+905010415526" class="mobile-nav__action"><i class="fas fa-phone" aria-hidden="true"></i>0501 041 5526</a>
+        <a href="https://wa.me/905537985901" class="mobile-nav__action"><i class="fab fa-whatsapp" aria-hidden="true"></i>WhatsApp</a>
+      </div>
+    </nav>
+  </div>
 
   <main id="main-content" class="article-main">
     <div class="container">
