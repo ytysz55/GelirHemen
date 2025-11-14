@@ -425,31 +425,6 @@ document.addEventListener('DOMContentLoaded', () => {
             toc.appendChild(ul);
         }
 
-        // Reading time and meta
-        const text = blogArticle.textContent || '';
-        const words = text.trim().split(/\s+/).filter(Boolean).length;
-        const minutes = Math.max(1, Math.ceil(words / 180));
-        const metaBar = document.querySelector('.blog-meta');
-
-        // Try to read publish date from Article JSON-LD
-        let published = '';
-        const ld = document.querySelectorAll('script[type="application/ld+json"]');
-        for (const s of ld) {
-            try {
-                const data = JSON.parse(s.textContent);
-                if (data && data['@type'] === 'Article' && data.datePublished) {
-                    published = data.datePublished;
-                    break;
-                }
-            } catch {}
-        }
-        if (metaBar) {
-            metaBar.innerHTML = `
-                <span><i class="far fa-calendar"></i> ${published || ''}</span>
-                <span><i class="far fa-clock"></i> ${minutes} dk okuma</span>
-            `;
-        }
-
         // BreadcrumbList JSON-LD
         const pageTitle = document.title.replace(/\s*\|.*$/, '').trim();
         const blogUrl = `${location.origin}/blog/`;

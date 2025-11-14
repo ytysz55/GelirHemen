@@ -472,22 +472,6 @@ main { flex: 1; }
   margin: 0 auto 24px;
 }
 
-.article-meta {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 18px;
-  flex-wrap: wrap;
-  font-size: 0.9rem;
-  color: #64748b;
-}
-
-.article-meta span {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
 .article-hero {
   margin-bottom: 48px;
   border-radius: 18px;
@@ -838,10 +822,6 @@ main { flex: 1; }
 .icon-info { color: #2563eb; }
 .article-icon {
   margin-right: 10px;
-}
-
-.article-meta i {
-  color: #3b82f6;
 }
 
 /* Blog Article */
