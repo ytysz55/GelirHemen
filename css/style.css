@@ -1,4 +1,15 @@
 /* Reset and Base Styles */
+:root {
+    --primary-orange: #FF6B35;
+    --primary-green: #10B981;
+    --primary-white: #FFFFFF;
+    --text-dark: #1F2937;
+    --text-gray: #6B7280;
+    --bg-light: #F9FAFB;
+    --bg-gray: #F3F4F6;
+    --border-color: #E5E7EB;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -16,17 +27,6 @@
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border-width: 0;
-}
-
-:root {
-    --primary-orange: #FF6B35;
-    --primary-green: #10B981;
-    --primary-white: #FFFFFF;
-    --text-dark: #1F2937;
-    --text-gray: #6B7280;
-    --bg-light: #F9FAFB;
-    --bg-gray: #F3F4F6;
-    --border-color: #E5E7EB;
 }
 
 body {
