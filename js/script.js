@@ -7,7 +7,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         if (target) {
             const headerHeight = header ? header.offsetHeight : 0;
             const targetPosition = target.offsetTop - headerHeight;
-            
+
             window.scrollTo({
                 top: targetPosition,
                 behavior: 'smooth'
@@ -39,7 +39,7 @@ const observer = new IntersectionObserver((entries) => {
 // Observe all animated elements
 document.addEventListener('DOMContentLoaded', () => {
     const animatedElements = document.querySelectorAll('.employee-card, .feature-item, .district-item, .review-card');
-    
+
     animatedElements.forEach(el => {
         observer.observe(el);
     });
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Add hover effect to cards with scale animation
 const cards = document.querySelectorAll('.employee-card, .review-card, .district-item');
 cards.forEach(card => {
-    card.addEventListener('mouseenter', function() {
+    card.addEventListener('mouseenter', function () {
         this.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
     });
 });
@@ -170,6 +170,12 @@ function updateHeaderForDistrict() {
     const headerTitle = document.querySelector('.header-title');
     const districtContext = getDistrictContext();
 
+    // Optimization: If the page is already statically generated for this district, skip dynamic updates
+    // This prevents "hydration" style redundancy on static pages
+    if (districtContext && document.title.includes(districtContext.districtName)) {
+        return;
+    }
+
     if (headerTitle && districtContext) {
         const { districtName, slug } = districtContext;
         const districtUrl = `https://www.gelirhemen.com/${slug}-elektrikci`;
@@ -177,48 +183,48 @@ function updateHeaderForDistrict() {
         // Update page title
         headerTitle.textContent = `${districtName} Elektrikçi: En İyi Hizmet ve Fiyat İçin İletişime Geçin`;
         document.title = `${districtName} Elektrikçi - 7/24 Acil Elektrik Tamiri | GelirHemen`;
-        
+
         // Update meta description
         const metaDescription = document.querySelector('meta[name="description"]');
         if (metaDescription) {
-            metaDescription.setAttribute('content', 
+            metaDescription.setAttribute('content',
                 `${districtName} Elektrikçi Hizmeti - 7/24 Profesyonel Elektrik Arıza ve Montaj. ${districtName}'da hızlı, güvenilir ve uygun fiyatlı elektrikçi hizmeti.`
             );
         }
-        
+
         // Update canonical URL
         const canonicalLink = document.querySelector('link[rel="canonical"]');
         if (canonicalLink) {
             canonicalLink.setAttribute('href', districtUrl);
         }
-        
+
         // Update Open Graph tags
         const ogTitle = document.querySelector('meta[property="og:title"]');
         if (ogTitle) {
             ogTitle.setAttribute('content', `${districtName} Elektrikçi - 7/24 Acil Elektrik Tamiri`);
         }
-        
+
         const ogDescription = document.querySelector('meta[property="og:description"]');
         if (ogDescription) {
-            ogDescription.setAttribute('content', 
+            ogDescription.setAttribute('content',
                 `${districtName}'da 7/24 profesyonel elektrikçi hizmeti. Elektrik arızaları, avize montajı ve tüm elektrik işleriniz için hızlı çözüm.`
             );
         }
-        
+
         const ogUrl = document.querySelector('meta[property="og:url"]');
         if (ogUrl) {
             ogUrl.setAttribute('content', districtUrl);
         }
-        
+
         // Update Twitter Card tags
         const twitterTitle = document.querySelector('meta[name="twitter:title"]');
         if (twitterTitle) {
             twitterTitle.setAttribute('content', `${districtName} Elektrikçi - 7/24 Acil Elektrik Tamiri`);
         }
-        
+
         const twitterDescription = document.querySelector('meta[name="twitter:description"]');
         if (twitterDescription) {
-            twitterDescription.setAttribute('content', 
+            twitterDescription.setAttribute('content',
                 `${districtName}'da 7/24 profesyonel elektrikçi hizmeti. Elektrik arızaları, avize montajı ve tüm elektrik işleriniz için hızlı çözüm.`
             );
         }
@@ -233,6 +239,11 @@ function updateHeaderForDistrict() {
 // Update structured data for district pages
 function updateStructuredDataForDistrict() {
     const districtContext = getDistrictContext();
+
+    // Optimization: Skip if static page
+    if (districtContext && document.title.includes(districtContext.districtName)) {
+        return;
+    }
 
     if (districtContext) {
         const { districtName, slug } = districtContext;
@@ -433,9 +444,9 @@ document.addEventListener('DOMContentLoaded', () => {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
-                {"@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": location.origin + '/'},
-                {"@type": "ListItem", "position": 2, "name": "Blog", "item": blogUrl},
-                {"@type": "ListItem", "position": 3, "name": pageTitle, "item": currentUrl}
+                { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": location.origin + '/' },
+                { "@type": "ListItem", "position": 2, "name": "Blog", "item": blogUrl },
+                { "@type": "ListItem", "position": 3, "name": pageTitle, "item": currentUrl }
             ]
         };
         const script = document.createElement('script');
@@ -449,7 +460,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function toggleTags(button) {
     const tagsContainer = button.parentElement;
     const hiddenTags = tagsContainer.querySelectorAll('.service-tag-hidden');
-    
+
     hiddenTags.forEach(tag => {
         if (tag.style.display === 'none' || tag.style.display === '') {
             tag.style.display = 'inline-block';
@@ -457,9 +468,9 @@ function toggleTags(button) {
             tag.style.display = 'none';
         }
     });
-    
+
     button.classList.toggle('active');
-    
+
     if (button.classList.contains('active')) {
         button.innerHTML = 'Daha Az <i class="fas fa-chevron-up"></i>';
     } else {
@@ -539,7 +550,7 @@ function debounce(func, wait) {
 // Add loading animation
 window.addEventListener('load', () => {
     document.body.classList.add('loaded');
-    
+
     // Fade in all lazy images
     document.querySelectorAll('.lazy-image').forEach(img => {
         if (img.complete) {
@@ -641,12 +652,12 @@ document.addEventListener('keydown', (event) => {
 // Add smooth reveal animation for elements
 const revealElements = () => {
     const reveals = document.querySelectorAll('.employee-card, .feature-item, .district-item, .review-card');
-    
+
     reveals.forEach(element => {
         const windowHeight = window.innerHeight;
         const elementTop = element.getBoundingClientRect().top;
         const elementVisible = 150;
-        
+
         if (elementTop < windowHeight - elementVisible) {
             element.classList.add('active');
         }
