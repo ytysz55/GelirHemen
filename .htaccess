@@ -18,8 +18,15 @@ RewriteRule ^ %1 [L,R=301]
 RewriteCond %{QUERY_STRING} ^ilce=([a-z0-9-]+)$ [NC]
 RewriteRule ^$ https://%{HTTP_HOST}/%1-elektrikci? [L,R=301,NE]
 
-# Serve clean district slugs from index.html
-RewriteRule ^([a-z0-9-]+)-elektrikci/?$ index.html [L,QSA]
+# Serve files and folders as-is
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Serve clean district slugs from their own folders
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([a-z0-9-]+)-elektrikci/?$ $1-elektrikci/index.html [L,QSA]
 
 # Gzip Compression
 <IfModule mod_deflate.c>
