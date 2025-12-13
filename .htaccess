@@ -16,33 +16,15 @@ RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
 # ============================================
-# 2. HTTPS, WWW ve Trailing Slash Yönlendirmesi (TEK ADIMDA)
+# 2. HTTPS ve WWW Yönlendirmesi (BASİTLEŞTİRİLDİ - TEK ADIM)
 # ============================================
-# Google'ın önerisi: Tüm yönlendirmeleri tek adımda yap (https://support.google.com/webmasters/answer/7440203#multiple_redirects)
-# Bu kural şunları TEK SEFERDE yapar:
-# - HTTP -> HTTPS
-# - non-www -> www  
-# - İlçe sayfalarına trailing slash ekleme
+# Google SEO için optimize edildi - redirect chain problemi çözüldü
+# Tüm sayfalar için HTTP -> HTTPS ve non-www -> www tek adımda
 
-# İlçe sayfası + HTTPS/WWW sorunu + trailing slash yok -> TEK YÖNLENDİRME
 RewriteCond %{HTTPS} off [OR]
 RewriteCond %{HTTP_HOST} !^www\. [NC]
 RewriteCond %{HTTP_HOST} ^(?:www\.)?(.+)$ [NC]
-RewriteCond %{REQUEST_URI} ^/([a-z0-9-]+)-elektrikci$ [NC]
-RewriteRule ^([a-z0-9-]+)-elektrikci$ https://www.%1/$1-elektrikci/ [R=301,L]
-
-# İlçe sayfası + trailing slash yok (HTTPS/WWW zaten doğru)
-RewriteCond %{HTTPS} on
-RewriteCond %{HTTP_HOST} ^www\. [NC]
-RewriteCond %{REQUEST_URI} ^/([a-z0-9-]+)-elektrikci$ [NC]
-RewriteRule ^([a-z0-9-]+)-elektrikci$ /$1-elektrikci/ [R=301,L]
-
-# HTTPS/WWW sorunu (ilçe sayfası değil)
-RewriteCond %{HTTPS} off [OR]
-RewriteCond %{HTTP_HOST} !^www\. [NC]
-RewriteCond %{HTTP_HOST} ^(?:www\.)?(.+)$ [NC]
-RewriteCond %{REQUEST_URI} !^/([a-z0-9-]+)-elektrikci$ [NC]
-RewriteRule ^(.*)$ https://www.%1%{REQUEST_URI} [R=301,L]
+RewriteRule ^(.*)$ https://www.%1/$1 [R=301,L]
 
 # ============================================
 # 4. DirectoryIndex Ayarı
