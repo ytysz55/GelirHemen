@@ -114,16 +114,32 @@
     </nav>
   </div>
 
+  <!-- Breadcrumb Navigation -->
+  <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+    <div class="container">
+      <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item">
+            <span itemprop="name">Ana Sayfa</span>
+          </a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/blog/" itemprop="item">
+            <span itemprop="name">Blog</span>
+          </a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <span itemprop="name">Acil Durumda Elektrik Arızası Nasıl Yönetilir?</span>
+          <meta itemprop="position" content="3" />
+        </li>
+      </ol>
+    </div>
+  </nav>
+
   <main id="main-content" class="article-main">
     <div class="container">
-      <nav class="blog-breadcrumbs" aria-label="breadcrumb">
-        <a href="/">Ana Sayfa</a>
-        <i class="fas fa-chevron-right" aria-hidden="true"></i>
-        <a href="/blog/">Blog</a>
-        <i class="fas fa-chevron-right" aria-hidden="true"></i>
-        <span>Acil Durumda Elektrik Arızası</span>
-      </nav>
-
       <header class="article-header">
         <span class="article-category">Rehber</span>
         <h1 class="article-title">Acil Durumda Elektrik Arızası Nasıl Yönetilir?</h1>
