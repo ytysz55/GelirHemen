@@ -1455,10 +1455,14 @@ main { flex: 1; }
 }
 
 @media (min-width: 1280px) {
+    .hero-section > .container {
+        max-width: 1440px;
+    }
+
     .employee-cards {
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 24px;
-        max-width: 1200px;
+        gap: 28px;
+        max-width: 1400px;
     }
 
     .employee-card {
