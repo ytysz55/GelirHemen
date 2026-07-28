@@ -1,7 +1,7 @@
 /* Reset and Base Styles */
 :root {
-    --primary-orange: #C2410C;
-    --primary-green: #047857;
+    --primary-orange: #FF6B35;
+    --primary-green: #10B981;
     --primary-white: #FFFFFF;
     --text-dark: #1F2937;
     --text-gray: #6B7280;
@@ -321,9 +321,9 @@ main { flex: 1; }
   aspect-ratio: 16 / 10;
 }
 
-.blog-card__badge--danger { background: #b91c1c; color: #fff; }
-.blog-card__badge--success { background: #047857; color: #fff; }
-.blog-card__badge--warning { background: #c2410c; color: #fff; }
+.blog-card__badge--danger { background: #dc2626; color: #fff; }
+.blog-card__badge--success { background: #16a34a; color: #fff; }
+.blog-card__badge--warning { background: #ea580c; color: #fff; }
 
 .blog-card__badge {
   position: absolute;
@@ -364,10 +364,10 @@ main { flex: 1; }
   font-weight: 600;
 }
 
-.tag-pill--danger { background: #fee2e2; color: #991b1b; }
-.tag-pill--warning { background: #fef3c7; color: #92400e; }
-.tag-pill--success { background: #dcfce7; color: #166534; }
-.tag-pill--info { background: #dbeafe; color: #1d4ed8; }
+.tag-pill--danger { background: #fee2e2; color: #dc2626; }
+.tag-pill--warning { background: #fef3c7; color: #d97706; }
+.tag-pill--success { background: #dcfce7; color: #16a34a; }
+.tag-pill--info { background: #dbeafe; color: #2563eb; }
 
 .blog-actions {
   margin-top: 40px;
@@ -709,7 +709,7 @@ main { flex: 1; }
 }
 
 .article-cta-card .cta-buttons a.btn-whatsapp {
-  background: #15803d;
+  background: #22c55e;
   color: #fff;
 }
 
@@ -815,11 +815,11 @@ main { flex: 1; }
   align-items: center;
 }
 
-.icon-neutral { color: #1d4ed8; }
-.icon-danger { color: #b91c1c; }
-.icon-warning { color: #b45309; }
-.icon-success { color: #047857; }
-.icon-info { color: #1d4ed8; }
+.icon-neutral { color: #3b82f6; }
+.icon-danger { color: #dc2626; }
+.icon-warning { color: #f59e0b; }
+.icon-success { color: #16a34a; }
+.icon-info { color: #2563eb; }
 .article-icon {
   margin-right: 10px;
 }
@@ -1371,7 +1371,7 @@ main { flex: 1; }
 .district-hero {
     text-align: center;
     padding: 30px 20px;
-    background: linear-gradient(135deg, var(--primary-orange), #9a3412);
+    background: linear-gradient(135deg, var(--primary-orange), #ff8c61);
     border-radius: 12px;
     margin-bottom: 40px;
     box-shadow: 0 4px 16px rgba(255, 107, 53, 0.2);
@@ -1441,7 +1441,20 @@ main { flex: 1; }
     justify-content: center;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 769px) and (max-width: 1279px) {
+    .employee-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        max-width: 900px;
+    }
+
+    .employee-card:nth-child(3) {
+        grid-column: 1 / -1;
+        width: calc((100% - 30px) / 2);
+        justify-self: center;
+    }
+}
+
+@media (min-width: 1280px) {
     .employee-cards {
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 24px;
@@ -1488,7 +1501,7 @@ main { flex: 1; }
 .employee-avatar {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, var(--primary-orange), #9a3412);
+    background: linear-gradient(135deg, var(--primary-orange), #FF8C61);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -1611,6 +1624,16 @@ main { flex: 1; }
     width: 100%;
 }
 
+@media (min-width: 769px) {
+    .contact-item:first-child {
+        flex: 0.88;
+    }
+
+    .contact-item:last-child {
+        flex: 1.12;
+    }
+}
+
 .contact-item {
     flex: 1;
     position: relative;
@@ -1648,18 +1671,20 @@ main { flex: 1; }
 
 .btn-whatsapp {
     width: 100%;
-    background: #15803d;
+    background: #25D366;
     color: white;
     border: none;
     border-radius: 6px;
-    padding: 14px 18px;
+    padding: 12px 10px;
     font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s ease;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 8px;
+    white-space: nowrap;
     text-decoration: none;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     min-height: 50px;
@@ -1667,12 +1692,12 @@ main { flex: 1; }
 }
 
 .btn-whatsapp:hover {
-    background: #166534;
+    background: #20BA5A;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
 }
 
 .btn-whatsapp i {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     transition: transform 0.2s ease;
 }
 
@@ -1686,14 +1711,16 @@ main { flex: 1; }
     color: white;
     border: none;
     border-radius: 6px;
-    padding: 14px 18px;
+    padding: 12px 10px;
     font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s ease;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 8px;
+    white-space: nowrap;
     text-decoration: none;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     min-height: 50px;
@@ -1701,12 +1728,12 @@ main { flex: 1; }
 }
 
 .btn-call-link:hover {
-    background: #9a3412;
+    background: #e55a2b;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
 }
 
 .btn-call-link i {
-    font-size: 1.4rem;
+    font-size: 1.25rem;
     transition: transform 0.2s ease;
 }
 
@@ -1715,7 +1742,7 @@ main { flex: 1; }
 }
 
 .btn-text {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 700;
     letter-spacing: 0.2px;
 }
@@ -1725,10 +1752,6 @@ main { flex: 1; }
 }
 
 @media (max-width: 768px) {
-    .btn-label-mobile {
-        display: inline;
-    }
-
     .btn-text {
         font-size: 1.2rem;
         font-weight: 700;
@@ -1947,7 +1970,7 @@ main { flex: 1; }
 
 .btn-contact:hover,
 .btn-contact:focus-visible {
-    background: #9a3412;
+    background: #e55a2b;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.18);
     transform: translateY(-1px);
 }
@@ -2380,12 +2403,12 @@ main { flex: 1; }
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--primary-orange), #9a3412);
+    background: linear-gradient(135deg, var(--primary-orange), #ff8c61);
     color: white;
 }
 
 .btn-secondary {
-    background: linear-gradient(135deg, var(--primary-green), #065f46);
+    background: linear-gradient(135deg, var(--primary-green), #34d399);
     color: white;
 }
 
