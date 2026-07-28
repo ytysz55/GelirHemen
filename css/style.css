@@ -1468,6 +1468,10 @@ main { flex: 1; }
     .employee-card {
         padding: 24px;
     }
+
+    .btn-call-link .btn-text {
+        font-size: 1.1rem;
+    }
 }
 
 .employee-card {
