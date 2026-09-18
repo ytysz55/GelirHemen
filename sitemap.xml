@@ -131,7 +131,7 @@
     <!-- Blog -->
     <url>
         <loc>https://www.gelirhemen.com/blog/</loc>
-        <lastmod>2026-07-28</lastmod>
+        <lastmod>2026-09-18</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
     </url>
@@ -168,6 +168,25 @@
     <url>
         <loc>https://www.gelirhemen.com/blog/prizden-yanik-kokusu-geliyorsa-ne-yapilmali.html</loc>
         <lastmod>2026-07-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <url>
+        <loc>https://www.gelirhemen.com/blog/evde-elektrik-faturasi-neden-yukselir.html</loc>
+        <lastmod>2026-09-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://www.gelirhemen.com/blog/klima-ve-isitici-icin-ayri-hat-gerekir-mi.html</loc>
+        <lastmod>2026-09-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://www.gelirhemen.com/blog/uzatma-kablosu-coklayici-priz-guvenli-mi.html</loc>
+        <lastmod>2026-09-18</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
