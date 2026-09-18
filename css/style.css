@@ -1443,9 +1443,9 @@ main { flex: 1; }
 
 @media (min-width: 1024px) {
     .employee-cards {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: minmax(0, 720px);
         gap: 30px;
-        max-width: 1200px;
+        max-width: 720px;
     }
 }
 
